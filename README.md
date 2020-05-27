@@ -20,7 +20,7 @@ type Article struct {
 
 func GetArticles(r *http.Request) ape.Response {
    article:=  Article{Id: "1234", Title: "An interesting article"}
-   return ape.NewOk([]model.Articles{article})
+   return ape.NewOk([]Article{article})
 }
 
 func main() {

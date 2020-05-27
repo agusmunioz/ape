@@ -20,8 +20,11 @@ type Article struct {
 
 //GetArticles returns business objects in an ape response, no json encoding is need it.
 func GetArticles(r *http.Request) ape.Response {
-   article:=  Article{Id: "1234", Title: "An interesting article"}
-   return ape.NewOk([]Article{article})
+   articles:=  []Article{
+                 {Id: "1234", Title: "An interesting article"},
+		 {Id: "5678", Title: "Another interesting article"},
+		} 
+   return ape.NewOk(articles)
 }
 
 func main() {

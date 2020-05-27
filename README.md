@@ -18,7 +18,7 @@ type Article struct {
    Title  string   `json:"title"`
 }
 
-//GetArticles is a handler that returns business objects in an ape response, no json encoding is need it.
+//GetArticles returns business objects in an ape response, no json encoding is need it.
 func GetArticles(r *http.Request) ape.Response {
    article:=  Article{Id: "1234", Title: "An interesting article"}
    return ape.NewOk([]Article{article})

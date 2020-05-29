@@ -42,6 +42,42 @@ func TestNewOk(t *testing.T) {
 
 }
 
+//Test the creation of a Created response.
+func TestNewCreated(t *testing.T) {
+
+	var expectedPayload interface{} = 7
+	response := NewCreated(expectedPayload)
+	assertResponse(t, response, http.StatusCreated, expectedPayload)
+
+}
+
+//Test the creation of a Accepted response.
+func TestNewAccepted(t *testing.T) {
+
+	var expectedPayload interface{} = 7
+	response := NewAccepted(expectedPayload)
+	assertResponse(t, response, http.StatusAccepted, expectedPayload)
+
+}
+
+//Test the creation of a BadRequest response.
+func TestNewConflict(t *testing.T) {
+
+	expectedMessage := "A message"
+	response := NewConflict(expectedMessage)
+	assertErrorResponse(t, response, http.StatusConflict, expectedMessage)
+
+}
+
+//Test the creation of a Forbidden response.
+func TestNewForbidden(t *testing.T) {
+
+	expectedMessage := "A message"
+	response := NewForbidden(expectedMessage)
+	assertErrorResponse(t, response, http.StatusForbidden, expectedMessage)
+
+}
+
 //Test the adding of a header when response has no previous header which initializes the list of header.ñ
 func TestWithHeaderWithNoHeaderListInResponse(t *testing.T) {
 

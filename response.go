@@ -32,23 +32,43 @@ type HTTPHeader struct {
 	Value string
 }
 
-//NewInternalServerError builds a model.Response for InternalServerError http response.
+//NewOk builds a Response for Ok http response.
+func NewOk(payload interface{}) Response {
+	return Response{Payload: payload, StatusCode: http.StatusOK}
+}
+
+//NewCreated builds a Response for Created http response
+func NewCreated(payload interface{}) Response {
+	return Response{Payload: payload, StatusCode: http.StatusCreated}
+}
+
+//NewAccepted builds a Response for Accepted http response
+func NewAccepted(payload interface{}) Response {
+	return Response{Payload: payload, StatusCode: http.StatusAccepted}
+}
+
+//NewInternalServerError builds a Response for InternalServerError http response.
 func NewInternalServerError(message string) Response {
 	return Response{Payload: ErrorPayload{Message: message},
 		StatusCode: http.StatusInternalServerError}
 }
 
-//NewNotFound builds a model.Response for NotFound http response.
+//NewNotFound builds a Response for NotFound http response.
 func NewNotFound(message string) Response {
 	return Response{Payload: ErrorPayload{Message: message}, StatusCode: http.StatusNotFound}
 }
 
-//NewOk builds a model.Response for Ok http response.
-func NewOk(payload interface{}) Response {
-	return Response{Payload: payload, StatusCode: http.StatusOK}
-}
-
-//NewBadRequest builds a model.Response for a BadRequest http response
+//NewBadRequest builds a Response for a BadRequest http response
 func NewBadRequest(message string) Response {
 	return Response{Payload: ErrorPayload{Message: message}, StatusCode: http.StatusBadRequest}
+}
+
+//NewConflict builds a Response for a Conflict http response
+func NewConflict(message string) Response {
+	return Response{Payload: ErrorPayload{Message: message}, StatusCode: http.StatusConflict}
+}
+
+//NewForbidden builds a Response for a Forbidden http response
+func NewForbidden(message string) Response {
+	return Response{Payload: ErrorPayload{Message: message}, StatusCode: http.StatusForbidden}
 }

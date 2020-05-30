@@ -16,7 +16,7 @@ func Handler(handler func(r *http.Request) Response) http.Handler {
 
 		if err != nil {
 			log.Println("There was an error when marshalling JSON response: " + err.Error())
-			body = []byte("{'message': 'Unexpected Internal Error'}")
+			body = []byte(`{"message": "Unexpected Internal Error"}`)
 			statusCode = http.StatusInternalServerError
 		}
 

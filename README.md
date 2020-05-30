@@ -1,6 +1,6 @@
 # Ape
 
-Ape is a Go module that provides a handler that encapsulates Json management for Go handlers
+Ape provides a Handler that encapsulates HTTP response management for JSON format.
 
 
 ```go
